@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="stylesheet" href="detail.css">
+  <meta charset="UTF-8">
+  <title>Detail Motor</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .detail-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background: #f9fafb;
+      border-radius: 10px;
+    }
+    h2 {
+      color: var(--primary-dark);
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 0.5rem;
+    }
+    .spec-list {
+      margin: 1.5rem 0;
+    }
+    .spec-list p {
+      margin: 0.5rem 0;
+    }
+    .spec-list span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="detail-container">
+    <div class="detail-header">
+      <h1 id="detailNama">-</h1>
+      <p class="price" id="detailHarga">Rp -</p>
+    </div>
+
+    <div class="detail-layout">
+      <div class="detail-image">
+        <img id="detailGambar" src="" alt="Motor">
+      </div>
+      <div class="detail-specs">
+        <h2>Spesifikasi</h2>
+        <div class="spec-item"><span>Warna:</span> <span id="detailWarna"></span></div>
+        <div class="spec-item"><span>Kondisi:</span> <span id="detailKondisi"></span></div>
+        <div class="spec-item"><span>Jarak Tempuh:</span> <span id="detailJarak"></span></div>
+        <div class="spec-item"><span>Tahun:</span> <span id="detailTahun"></span></div>
+        <div class="spec-item"><span>Transmisi:</span> <span id="detailTransmisi"></span></div>
+        <div class="spec-item"><span>Mesin:</span> <span id="detailMesin"></span></div>
+        <div class="spec-item"><span>Bahan Bakar:</span> <span id="detailBahan"></span></div>
+        <div class="spec-item"><span>Plat:</span> <span id="detailPlat"></span></div>
+      </div>
+    </div>
+
+    <div class="detail-description">
+      <h3>Deskripsi</h3>
+      <p id="detailDeskripsi"></p>
+    </div>
+
+    <a href="index.html" class="back-button">← Kembali ke Daftar</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const data = JSON.parse(localStorage.getItem("produkList") || "[]");
+    const produk = data[+id];
+
+    if (produk) {
+      document.getElementById("detailNama").textContent = produk.nama || "-";
+      document.getElementById("detailHarga").textContent = produk.harga || "-";
+      document.getElementById("detailGambar").src = produk.gambar || "";
+      document.getElementById("detailWarna").textContent = produk.warna || "-";
+      document.getElementById("detailKondisi").textContent = produk.kondisi || "-";
+      document.getElementById("detailJarak").textContent = produk.jarak || "-";
+      document.getElementById("detailTahun").textContent = produk.tahun || "-";
+      document.getElementById("detailTransmisi").textContent = produk.transmisi || "-";
+      document.getElementById("detailMesin").textContent = produk.mesin || "-";
+      document.getElementById("detailBahan").textContent = produk.bahan || "-";
+      document.getElementById("detailPlat").textContent = produk.plat || "-";
+      document.getElementById("detailDeskripsi").textContent = produk.deskripsi || "Tidak ada deskripsi.";
+    }
+  </script>
+</body>
+</html>

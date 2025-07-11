@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - MotorBekas88</title>
+  <link rel="stylesheet" href="admin.css">
+  <style>
+    .admin-container { max-width: 600px; margin: auto; padding: 2rem; }
+    .admin-container h2 { margin-bottom: 1rem; }
+    .admin-container input, .admin-container textarea, .admin-container button {
+      display: block; width: 100%; margin-bottom: 1rem; padding: 0.5rem;
+    }
+    .product-list { margin-top: 2rem; }
+    .product-item { border: 1px solid #ddd; padding: 1rem; margin-bottom: 1rem; }
+    .logout { background: red; color: white; }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <div id="loginSection">
+      <h2>Login Admin</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="adminSection" style="display:none;">
+      <h2>Tambah / Edit Produk</h2>
+        <input type="hidden" id="editIndex">
+        <input type="text" id="nama" placeholder="Nama Motor">
+        <input type="text" id="harga" placeholder="Harga">
+        <input type="text" id="warna" placeholder="Warna">
+        <input type="text" id="kondisi" placeholder="Kondisi">
+        <input type="text" id="jarak" placeholder="Jarak Tempuh">
+        <input type="text" id="tahun" placeholder="Tahun">
+        <input type="text" id="transmisi" placeholder="Transmisi">
+        <input type="text" id="mesin" placeholder="Kapasitas Mesin">
+        <input type="text" id="bahan" placeholder="Bahan Bakar">
+        <input type="text" id="plat" placeholder="Plat">
+        <textarea id="deskripsi" placeholder="Deskripsi Motor"></textarea>
+        <input type="text" id="gambar" placeholder="URL Gambar">
+        <button onclick="simpanProduk()">Simpan Produk</button>
+        <button class="logout" onclick="logout()">Logout</button>
+
+      <div class="product-list" id="productList"></div>
+    </div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
